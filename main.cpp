@@ -17,7 +17,7 @@ using namespace std;
 
 void MyFunc(double t, double *y, double *dy) {
     dy[0] = y[1];
-    dy[1] = (2.0 * t * y[1] - 2.0 * y[0]) / ((t * t - 1.0));
+    dy[1] = -y[1]/2*t;
 
     return;
 }
@@ -38,19 +38,19 @@ int main() {
     double tout = 2.0;
     double h = 0.1;
 
-    ofstream fout("out.txt");
-    fout << "\nRKF45\n";
-    fout.precision(10);
+    //ofstream cout("out.txt");
+    cout << "\nRKF45\n";
+    cout.precision(10);
     for (int i = 0; i <= 10; i++) {
         RKF45(MyFunc, Negn, Y0, &T0, &tout, &RE, &AE, &iflag, work, iwork);
-        fout << "\t" << setw(8) << left << "Y0[0] = " << Y0[0] << "\t\t" << "Y0[1]=" << Y0[1] << "\t\t" << "iflag="
+        cout << "\t" << setw(8) << left << "Y0[0] = " << Y0[0] << "\t\t" << "Y0[1]=" << Y0[1] << "\t\t" << "iflag="
              << iflag << endl;
         RKFY0[i] = Y0[0];
         RKFY1[i] = Y0[1];
         tout += h;
     }
 
-    fout << "\r\n Метод ломаных Эйлера\n";
+    cout << "\r\n Method of Eiler \n";
     //Тут будет усовершенствованный метод кривых Эйлера
     //********************************************
     T0 = 2.0;
@@ -59,7 +59,7 @@ int main() {
     Y0[1] = 4.0;
     for (int i = 0; i <= 10; i++) {
         euler(MyFunc, Negn, h, Y0, T0, tout);
-        fout << "\t " << setw(8) << left << "Y0[0] = " << setw(15) << left << Y0[0] << "Y0[1] = " << Y0[1] << endl;
+        cout << "\t " << setw(8) << left << "Y0[0] = " << setw(15) << left << Y0[0] << "Y0[1] = " << Y0[1] << endl;
         EULERY0[i] = Y0[0];
         EULERY1[i] = Y0[1];
         tout += h;
@@ -69,8 +69,8 @@ int main() {
 
     //********************************************
     //Точное решение
-    fout.precision(10);
-    fout << "\n Точное решение \n";
+    cout.precision(10);
+    cout << "\n Certain solution \n";
     T0 = 2.0;
     h = 0.1;
 
@@ -81,18 +81,18 @@ int main() {
         T0 += h;
     }
     for (int i = 0; i <= 10; i++) {
-        fout << "\t" << setw(8) << left << "Y0[0] = " << setw(20) << resultY0[i] << "Y0[1] = " << resultY1[i] << endl;
+        cout << "\t" << setw(8) << left << "Y0[0] = " << setw(20) << resultY0[i] << "Y0[1] = " << resultY1[i] << endl;
     }
 
-    fout << "Погрешности:" << endl;
+    cout << "Pogrescnosti:" << endl;
     for (int i = 0; i <= 10; i++)
-        fout << "\t" << setw(10) << left << "Er RKFY0 = " << setw(20) << abs(RKFY0[i]) - abs(resultY0[i])
+        cout << "\t" << setw(10) << left << "Er RKFY0 = " << setw(20) << abs(RKFY0[i]) - abs(resultY0[i])
              << "Er RKFY1 = " << abs(RKFY1[i]) - abs(resultY1[i]) << endl;
 
-    fout << endl;
+    cout << endl;
 
     for (int i = 0; i <= 10; i++)
-        fout << "\t" << setw(10) << left << "Er EULERY0 = " << setw(20) << abs(EULERY0[i]) - abs(resultY0[i])
+        cout << "\t" << setw(10) << left << "Er EULERY0 = " << setw(20) << abs(EULERY0[i]) - abs(resultY0[i])
              << "Er EULERY1 = " << abs(EULERY1[i]) - abs(resultY1[i]) << endl;
 
     return 0;
