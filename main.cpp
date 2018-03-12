@@ -10,6 +10,8 @@
 #include <fstream>
 #include <iomanip>
 #include "Euler.h"
+#include "Euler_Koshi.h"
+#include <stdio.h>
 
 #include <iomanip>
 
@@ -17,7 +19,7 @@ using namespace std;
 
 void MyFunc(double t, double *y, double *dy) {
     dy[0] = y[1];
-    dy[1] = -y[1]/2*t;
+    dy[1] = -y[1] / 2 * t;
 
     return;
 }
@@ -27,6 +29,8 @@ int main() {
     double RKFY1[100];
     double EULERY0[100];
     double EULERY1[100];
+    double EULER_KOSHI_Y0[100];
+    double EULER_KOSHI_Y1[100];
     int Negn = 2;
     int iwork[30];
     double work[15];
@@ -38,7 +42,7 @@ int main() {
     double tout = 2.0;
     double h = 0.1;
 
-    //ofstream cout("out.txt");
+
     cout << "\nRKF45\n";
     cout.precision(10);
     for (int i = 0; i <= 10; i++) {
@@ -66,6 +70,24 @@ int main() {
         Y0[0] = 5.0;
         Y0[1] = 4.0;
     }
+
+    cout << "\r\n Method of Eiler-Koshi \n";
+    //Тут будет усовершенствованный метод кривых Эйлера
+    //********************************************
+    T0 = 2.0;
+    tout = 2.0;
+    Y0[0] = 5.0;
+    Y0[1] = 4.0;
+    for (int i = 0; i <= 10; i++) {
+        euler_koshi(MyFunc, Negn, h, Y0, T0, tout);
+        cout << "\t " << setw(8) << left << "Y0[0] = " << setw(15) << left << Y0[0] << "Y0[1] = " << Y0[1] << endl;
+        EULER_KOSHI_Y0[i] = Y0[0];
+        EULER_KOSHI_Y1[i] = Y0[1];
+        tout += h;
+        Y0[0] = 5.0;
+        Y0[1] = 4.0;
+    }
+
 
     //********************************************
     //Точное решение
@@ -95,5 +117,17 @@ int main() {
         cout << "\t" << setw(10) << left << "Er EULERY0 = " << setw(20) << abs(EULERY0[i]) - abs(resultY0[i])
              << "Er EULERY1 = " << abs(EULERY1[i]) - abs(resultY1[i]) << endl;
 
+    cout << endl;
+
+    for (int i = 0; i <= 10; i++)
+        cout << "\t" << setw(10) << left << "Er EULER_KOSHI_Y0 = " << setw(20)
+             << abs(EULER_KOSHI_Y0[i]) - abs(resultY0[i])
+             << "Er EULER_KOSHI_Y1 = " << abs(EULER_KOSHI_Y1[i]) - abs(resultY1[i]) << endl;
+
+    cout << endl;
+
+
     return 0;
+
+
 }

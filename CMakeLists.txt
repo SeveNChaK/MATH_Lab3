@@ -4,7 +4,7 @@ project(ThirdLab)
 set(CMAKE_CXX_STANDARD 11)
 
 set(executable main.cpp)
-set(Eler Euler.cpp rkf45.cpp)
+set(Eler Euler.cpp rkf45.cpp Euler_Koshi.cpp Euler_Koshi.h)
 add_library(Euler STATIC ${Eler})
 add_executable(ThirdLab ${executable})
 target_link_libraries(ThirdLab Euler)
