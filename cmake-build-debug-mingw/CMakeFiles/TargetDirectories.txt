@@ -1,0 +1,3 @@
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/cmake-build-debug-mingw/CMakeFiles/Calc.dir
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir

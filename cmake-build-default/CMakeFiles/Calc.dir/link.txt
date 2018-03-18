@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Calc.dir/lib/lagrange.cpp.o CMakeFiles/Calc.dir/lib/quanc8.cpp.o CMakeFiles/Calc.dir/lib/spline.cpp.o CMakeFiles/Calc.dir/lib/matrix.cpp.o CMakeFiles/Calc.dir/second/main.cpp.o  -o Calc 

@@ -1,0 +1,3 @@
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/cmake-build-default/CMakeFiles/rebuild_cache.dir
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/cmake-build-default/CMakeFiles/edit_cache.dir
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/cmake-build-default/CMakeFiles/Calc.dir

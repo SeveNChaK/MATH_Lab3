@@ -3,8 +3,4 @@ project(ThirdLab)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(executable main.cpp)
-set(Eler Euler.cpp rkf45.cpp Euler_Koshi.cpp Euler_Koshi.h)
-add_library(Euler STATIC ${Eler})
-add_executable(ThirdLab ${executable})
-target_link_libraries(ThirdLab Euler)
+add_executable(Calc headers/rkf45.h lib/rkf45.cpp third/main.cpp headers/euler.h lib/euler.cpp headers/rk3.h lib/rk3.cpp)

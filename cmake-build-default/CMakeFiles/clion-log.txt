@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE= -G "CodeBlocks - Unix Makefiles" "/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/cmake-build-default

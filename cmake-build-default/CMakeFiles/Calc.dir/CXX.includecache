@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/lagrange.h
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/matrix.h
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/quanc8.h
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/spline.h
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/lib/lagrange.cpp
+../headers/lagrange.h
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/lagrange.h
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/lib/matrix.cpp
+math.h
+-
+../headers/matrix.h
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/matrix.h
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/lib/quanc8.cpp
+../headers/quanc8.h
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/quanc8.h
+math.h
+-
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/lib/spline.cpp
+../headers/spline.h
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/spline.h
+math.h
+-
+
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/second/main.cpp
+iostream
+-
+../headers/matrix.h
+/Users/Malik/Dropbox/Учеба/Вычислительная математика/4 семестр/lab1/Calc/headers/matrix.h
+math.h
+-
+

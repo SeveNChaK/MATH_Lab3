@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/euler.h
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/rk3.h
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/rkf45.h
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/lib/euler.cpp
+../headers/euler.h
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/euler.h
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/lib/rk3.cpp
+../headers/rk3.h
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/rk3.h
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/lib/rkf45.cpp
+../headers/rkf45.h
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/rkf45.h
+math.h
+-
+stdlib.h
+-
+
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/third/main.cpp
+iostream
+-
+math.h
+-
+../headers/rkf45.h
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/rkf45.h
+../headers/euler.h
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/euler.h
+../headers/rk3.h
+C:/Users/Danila Eremenko/CLionProjects/Malik/Calc/Calc/headers/rk3.h
+
