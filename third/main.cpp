@@ -1,38 +1,36 @@
 #include <iostream>
 #include <math.h>
 #include "../headers/rkf45.h"
-#include "../headers/euler.h"
+#include "../headers/rk3.h"
 
-//Параметры
+//ПАРАМЕТРЫ
 double h, bottom, up, y[2], pointsNumber, tOut, error, errors, re = 1e-8, ae = 1e-8;
 int iflag = 1, n = 2;
 
-//Рабочие массивы
 double work[15];
 int iwork[30];
-double accurate[11];
+double accurate[11]; //Точное решение
 char line[] = "=========================================================================";
 
 //Полученная аналитическим методом систему двух ДУ 1-ого порядка
 void fun(double t, double *y, double *dy) {
     dy[0] = y[1];
-    dy[1] = -y[1] / (2 * t);
+    dy[1] = (6*y[0])/(pow(t, 2));
 }
 
-//Установка параметров
+//УСТАНОВКА ПАРАМЕТРОВ
 void setup() {
     h = 0.1, bottom = 1, up = 2, tOut = bottom;
-    y[0] = 2, y[1] = 1, iflag = 1, errors = 0;
+    y[0] = 1, y[1] = 3, iflag = 1, errors = 0;
     pointsNumber = (up - bottom) / h + 1;
-
 }
 
-//Точное решение
+//ВЫЧИСЛЕНИЕ ТОЧНОГО РЕШЕНИЯ
 double rightFun(double t) {
-    return 2 * sqrt(t);
+    return pow(t, 3);
 }
 
-//Функция, выводящая в консоль погрешность полученного решения, относительно точного решения
+//ВЫВОД ПОГРЕШНОСТИ
 void printEr(double tOut, int i) {
     error = abs(accurate[i] - y[0]);
     errors += error;
@@ -41,13 +39,15 @@ void printEr(double tOut, int i) {
 
 int main() {
     setup();
+
+    //СЧИТАЕМ ТОЧНОЕ РЕШЕНИЕ
     for (int i = 0; i < pointsNumber; ++i) {
         tOut = i * h + 1;
         accurate[i] = rightFun(tOut);
     }
 
-    //Считаем через RKF45
-    printf(" h  \t%-24s%-24s%s\n", "RKF45", "Accurate", "Errors");
+    //СЧИТАЕМ ЧЕРЕЗ RKF-45
+    printf(" h  \t%-24s%-24s%s\n", "RKF-45", "Accurate", "Errors");
     for (int i = 0; i < pointsNumber; ++i) {
         tOut = i * h + 1;
         RKF45(fun, n, y, &bottom, &tOut, &re, &ae, &iflag, work, iwork);
@@ -57,13 +57,13 @@ int main() {
 
 
     setup();
-    //Считаем методом Эйлера-Коши
-    printf(" h  \t%-24s%-24s%s\n", "Euler-Cauchy", "Accurate", "Errors");
+
+    //СЧИТАЕМ ЧЕРЕЗ RK-3
+    printf(" h  \t%-24s%-24s%s\n", "RK-3", "Accurate", "Errors");
     for (int i = 0; i < pointsNumber; ++i) {
         tOut = i * h + 1;
-        euler(fun, n, h, y, tOut, iflag, EULER_CAUCHY);
+        rk3(fun, n, h, y, tOut, iflag);
         printEr(tOut, i);
     }
     printf("\t\t%-40s%.15f\n%s\n", "Sum of errors:", errors, line);
-
 }
